@@ -35,6 +35,10 @@ jobs:
         run: |
           make MELANGE="melange" local-melange.rsa
 
+      - name: 'Build'
+        run: |
+          make BUILDWORLD=no package/binutils
+
   k8s:
     name: Test on k8s
     runs-on:
@@ -55,4 +59,8 @@ jobs:
       - name: 'Generate local signing key'
         run: |
           make MELANGE="melange" local-melange.rsa
+
+      - name: 'Build'
+        run: |
+          make BUILDWORLD=no package/binutils
 
